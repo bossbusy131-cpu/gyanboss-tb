@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/tb/(.*)",
+      "destination": "https://seashell-app-3z5jp.ondigitalocean.app/api/v1/$1"
+    },
+    {
+      "source": "/api/comments/(.*)",
+      "destination": "/api/comments?lectureId=$1"
+    },
+    {
+      "source": "/((?!api/|.*\\..*).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
+      ]
+    }
+  ]
+}
